@@ -1,7 +1,7 @@
 import React from 'react';
 import { View,Text, StyleSheet } from 'react-native';
 
-const Categories = ()=>{
+const Categories = props=>{
     return(
         <View style={styles.screen}>
             <Text>Categories Screen</Text>
