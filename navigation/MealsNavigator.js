@@ -7,9 +7,11 @@ import MealDetailScreen from "../screens/MealDetailScreen";
 import { Platform } from "react-native";
 import Colors from "../constants/Colors";
 import { createBottomTabNavigator } from "react-navigation-tabs";
+import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
 import FavoritesScreen from "../screens/FavoritesScreen";
 import { Ionicons } from "@expo/vector-icons";
+import FilterScreen from '../screens/FiltersScreen';
 
 const defaultStackNavOptions = {
   headerStyle: {
@@ -85,4 +87,14 @@ const MealsFavTabNavigator =
         },
       });
 
-export default createAppContainer(MealsFavTabNavigator);
+const FiltersNavigator = createStackNavigator({
+    Filters: FilterScreen
+
+});
+
+const MainNavigator = createDrawerNavigator({
+    MealsFavs: MealsFavTabNavigator,
+    Filters: FiltersNavigator
+});
+
+export default createAppContainer(MainNavigator);

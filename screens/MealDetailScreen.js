@@ -21,7 +21,7 @@ MealDetailScreen.navigationOptions = (navigationData) => {
   const meal = navigationData.navigation.getParam("meal");
   return {
     title: meal.title,
-    headerRight: (
+    headerRight:()=> (
       <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
         <Item title="Favorite" iconName="ios-star" onPress={() => {}} />
       </HeaderButtons>

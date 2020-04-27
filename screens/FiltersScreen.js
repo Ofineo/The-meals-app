@@ -1,22 +1,39 @@
-import React from 'react';
-import { View,Text, StyleSheet } from 'react-native';
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
+import { HeaderButtons, Item } from "react-navigation-header-buttons";
+import HeaderButton from "../components/HeaderButton";
 
-const Categories = props=>{
-    return(
-        <View style={styles.screen}>
-            <Text>Categories Screen</Text>
-        </View>
-
-    );
+const FiltersScreen = (props) => {
+  return (
+    <View style={styles.screen}>
+      <Text>Categories Screen</Text>
+    </View>
+  );
 };
 
-const styles = StyleSheet.create({
-    screen:{
-        flex:1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
+FiltersScreen.navigationOptions = (navigationData) => {
+    return {
+      headerLeft: () => (
+        <HeaderButtons HeaderButtonComponent={HeaderButton}>
+          <Item
+            title="Menu"
+            iconName="ios-menu"
+            onPress={() => {
+              navigationData.navigation.toggleDrawer();
+            }}
+          />
+        </HeaderButtons>
+      ),
+      title: "Filter Meals",
+    };
+  };
 
+const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });
 
-export default Categories;
+export default FiltersScreen;
