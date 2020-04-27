@@ -1,12 +1,27 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList, Button } from 'react-native';
+import { View, Text, StyleSheet, FlatList, Button, TouchableOpacity } from 'react-native';
 import { CATEGORIES } from '../data/dummy-data';
-
-const renderGridItem = itemData => {
-    return <View style={styles.gridItem}><Text>{itemData.item.title}</Text></View>
-};
+import CategoryGridTile from '../components/CategoryGridTile';
 
 const CategoriesScreen = props => {
+
+    const renderGridItem = itemData => {
+        return (
+            <CategoryGridTile
+                title={itemData.item.title}
+                color={itemData.item.color}
+                onSelect={() => {
+                    props.navigation.navigate({
+                        routeName: 'Categorymeals',
+                        params: {
+                            categoryId: itemData.item.id
+                        }
+                    })
+                }}
+            />
+        );
+    };
+
     return (
         <FlatList data={CATEGORIES} renderItem={renderGridItem} numColumns={2} />
     );
@@ -17,14 +32,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
-    },
-    gridItem:{
-        flex: 1,
-        margin: 15,
-        height: 150,
-        
     }
-
 });
 
 export default CategoriesScreen;
