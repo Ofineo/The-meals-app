@@ -8,6 +8,7 @@ import {
   Platform,
   ImageBackground,
 } from "react-native";
+import DefaultText from '../components/DefaultText';
 
 const MealItem = (props) => {
   let TouchableComponent = TouchableOpacity;
@@ -32,9 +33,9 @@ const MealItem = (props) => {
             </ImageBackground>
           </View>
           <View style={{ ...styles.mealRow, ...styles.mealDetail }}>
-            <Text>{props.meal.duration}</Text>
-            <Text>{props.meal.complexity.toUpperCase()}</Text>
-            <Text>{props.meal.afordability.toUpperCase()}</Text>
+            <DefaultText>{props.meal.duration}</DefaultText>
+            <DefaultText>{props.meal.complexity.toUpperCase()}</DefaultText>
+            <DefaultText>{props.meal.afordability.toUpperCase()}</DefaultText>
           </View>
         </View>
       </TouchableComponent>
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: "open-sans-bold",
-    fontSize: 20,
+    fontSize: 22,
     color: "white",
     textAlign: "center",
   },
