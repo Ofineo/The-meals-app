@@ -1,24 +1,28 @@
 import React from "react";
 import { View, Text, StyleSheet, FlatList } from "react-native";
-import MealItem from '../components/MealItem';
+import MealItem from "../components/MealItem";
+import { useSelector } from "react-redux";
 
 const MealList = (props) => {
+  const favMeals = useSelector((state) => state.meals.favoriteMeals);
 
-    const renderMealItem = (itemData) => {
-        return (
-          <MealItem
-            meal={itemData.item}
-            onSelectMeal={() => {
-              props.navigation.navigate({
-                routeName: "Mealdetail",
-                params: {
-                  meal: itemData.item,
-                },
-              });
-            }}
-          />
-        );
-      };
+  const renderMealItem = (itemData) => {
+    const isFavorite = favMeals.some(meal=>meal.id === itemData.item.id);
+    return (
+      <MealItem
+        meal={itemData.item}
+        onSelectMeal={() => {
+          props.navigation.navigate({
+            routeName: "Mealdetail",
+            params: {
+              meal: itemData.item,
+              isFav: isFavorite,
+            },
+          });
+        }}
+      />
+    );
+  };
 
   return (
     <View style={styles.list}>
@@ -32,12 +36,12 @@ const MealList = (props) => {
 };
 
 const styles = StyleSheet.create({
-    list: {
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "center",
-      padding: 15,
-    },
-  });
+  list: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 15,
+  },
+});
 
 export default MealList;
