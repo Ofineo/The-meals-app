@@ -1,5 +1,6 @@
 import Category from '../models/category';
 import Meal from '../models/meal';
+import Ingredient from '../models/ingredient';
 
 export const CATEGORIES = [
   new Category('c1', 'Italian', '#f5428d'),
@@ -12,6 +13,36 @@ export const CATEGORIES = [
   new Category('c8', 'Asian', '#b9ffb0'),
   new Category('c9', 'French', '#ffc7ff'),
   new Category('c10', 'Summer', '#47fced')
+];
+
+export const INGREDIENTS =[
+  new Ingredient('i1','Albergine'),
+  new Ingredient('i2','Potato'),
+  new Ingredient('i3','Onion'),
+  new Ingredient('i4','Red Onion'),
+  new Ingredient('i5','Cabbage'),
+  new Ingredient('i6','Spring onion'),
+  new Ingredient('i7','Radish'),
+  new Ingredient('i8','Betroot'),
+  new Ingredient('i9','Courgettes'),
+  new Ingredient('i10','Parsil'),
+  new Ingredient('i11','Coriander'),
+  new Ingredient('i12','Tomatos'),
+  new Ingredient('i13','Cherry Tomatos'),
+  new Ingredient('i14','Mushrooms'),
+  new Ingredient('i15','Chicken'),
+  new Ingredient('i16','Turkey'),
+  new Ingredient('i17','Cod'),
+  new Ingredient('i18','Coliflaour'),
+  new Ingredient('i19','Pumpkin'),
+  new Ingredient('i20','Eggs'),
+  new Ingredient('i21','Pumpkin seeds'),
+  new Ingredient('i22','Sunflour seeds'),
+  new Ingredient('i23','Basmati rice'),
+  new Ingredient('i24','Red lentils'),
+  new Ingredient('i25','Split lentils'),
+  new Ingredient('i26','Oats'),
+  new Ingredient('i27','Peanut Butter'),
 ];
 
 export const MEALS = [
