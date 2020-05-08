@@ -2,24 +2,11 @@ import React, { useState, useEffect, useCallback } from "react";
 import { View, Text, StyleSheet, Switch, Platform } from "react-native";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import HeaderButton from "../components/HeaderButton";
-import Colors from "../constants/Colors";
 import { useDispatch } from "react-redux";
 import { setFilters } from "../store/actions/meals";
+import FilterSwitch from "../components/FilterSwitch";
 import { AppLoading } from "expo";
 
-const FilterSwitch = (props) => {
-  return (
-    <View style={styles.filterContainer}>
-      <Text style={{ fontSize: 17 }}>{props.label}</Text>
-      <Switch
-        value={props.state}
-        onValueChange={props.setState}
-        thumbColor={Platform.OS === "android" ? Colors.primaryColor : ""}
-        trackColor={{ true: Colors.accentColor }}
-      />
-    </View>
-  );
-};
 
 const FiltersScreen = (props) => {
   const [isGlutenFree, setIsGlutenFree] = useState(false);
