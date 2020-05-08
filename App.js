@@ -6,6 +6,8 @@ import { enableScreens } from "react-native-screens";
 import { createStore, combineReducers } from "redux";
 import mealsReducer from "./store/reducer/meals";
 import { Provider } from "react-redux";
+import { applyMiddleware } from "redux";
+import ReduxThunk from "redux-thunk";
 
 enableScreens();
 
@@ -13,12 +15,14 @@ const rootReducer = combineReducers({
   meals: mealsReducer,
 });
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 
 const fetchFonts = () => {
-  Fonts.loadAsync({
+  return Fonts.loadAsync({
     "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
     "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
+    "bb2-regular": require("./assets/fonts/BalooBhaina2-Regular.ttf"),
+    "bb2-bold": require("./assets/fonts/BalooBhaina2-Bold.ttf"),
   });
 };
 
@@ -35,7 +39,7 @@ export default function App() {
     );
   }
   return (
-    <Provider store = {store}>
+    <Provider store={store}>
       <MealsNavigator />
     </Provider>
   );
